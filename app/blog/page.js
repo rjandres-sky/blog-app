@@ -1,18 +1,20 @@
-import Link from "next/link";
-export default async function BlogPost() {
-    const fetchBlogPost = await fetch("https://jsonplaceholder.typicode.com/posts/");
-    const blogPost = await fetchBlogPost.json();    
-    
-    return (
-    <>
-    {blogPost.map((post) => (
-      <div key={post.id} className="flex items-center justify-between p-24">
-        <h1 className="text-4xl font-bold">{post.title}</h1>
-        <p className="mt-4 text-lg">{post.body}</p>
-        <Link href={`/blog/${post.id}`}>Read More</Link>
-      </div>
-    ))}
-    
-    </>
+import Card from '../components/card';
+import Link from 'next/link';
+
+export default async function BlogPage() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const posts = await res.json();
+
+  return (
+    <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      {posts.slice(0, 9).map((post) => (
+        <Card key={post.id} title={post.title} description={post.body.substring(0, 60) + "..."}>
+          <Link href={`/blog/${post.id}`} className="text-blue-500 font-bold">
+            Read More →
+          </Link>
+        </Card>
+      ))}
+    </div>
   );
 }
