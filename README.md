@@ -3,12 +3,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 create new next app
+```bash
     npx create-next-app@latest .
+```
 
 if you clone this repository : 
+```bash
     npm install
 
     npm run dev
+```
 
 First, run the development server:
 ```bash
