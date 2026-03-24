@@ -2,8 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+create new next app
+    npx create-next-app@latest .
 
+if you clone this repository : 
+    npm install
+
+    npm run dev
+
+First, run the development server:
 ```bash
 npm run dev
 # or
